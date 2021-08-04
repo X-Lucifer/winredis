@@ -16,14 +16,14 @@ version: 6.2.5
 
 #### Windows平台其他版本Redis
 1. `tporadowski / redis`
-  > `地址`: [https://github.com/tporadowski/redis](https://github.com/tporadowski/redis)
-  > `版本`: 5.0.10
+  > `地址`: [https://github.com/tporadowski/redis](https://github.com/tporadowski/redis)<br/>
+  > `版本`: 5.0.10<br/>
   > `说明`:
   >> Native port of Redis for Windows. Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs. This repository contains unofficial port of Redis to Windows.
 
 2. `microsoftarchive / redis`
-  > `地址`: [https://github.com/microsoftarchive/redis](https://github.com/microsoftarchive/redis)
-  > `版本`: 3.0.504
+  > `地址`: [https://github.com/microsoftarchive/redis](https://github.com/microsoftarchive/redis)<br/>
+  > `版本`: 3.0.504<br/>
   > `说明`:
   >> Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes.
 
