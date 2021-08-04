@@ -9,6 +9,11 @@ version: 6.2.5
 #### 说明:
 > 从`Redis`官方源码中编译的`Windows`平台可用的`Redis Server`程序, 分别编译的版本为`cygwin`和`msys2`, 功能上无差别, 可任意选择. 可配合nssm安装为Windows服务开机自启动. 方便Windows环境下Redis的调试和日常开发使用.
 
+#### 版本选择: `msys2`和`cygwin`
+1. redis-`{版本号}`-cygwin.tar: 基于`cygwin`平台编译的redis版本.
+2. redis-`{版本号}`-msys2.tar: 基于`msys2`平台编译的redis版本.
+> 说明: 功能上无任何差别, 可任意选择`msys2`或`cygwin`版本的下载即可
+
 #### Windows平台其他版本Redis
 1. `tporadowski / redis`
   > `地址`: [https://github.com/tporadowski/redis](https://github.com/tporadowski/redis)
