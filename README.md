@@ -1,7 +1,8 @@
 ---
 title: Windows Redis Server
-created: '2021-08-05T00:00:00.097Z'
-modified: '2021-08-05T00:00:00.097Z'
+created: '2021-08-05'
+modified: '2021-08-05'
+version: 6.2.5
 ---
 
 ## Windows平台可用的Redis Server
