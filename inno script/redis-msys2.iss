@@ -9,6 +9,7 @@
 #define MyAppPlatform "msys2"
 #define MyCopyright "Copyright © Lucifer. All Rights Reserved."
 #define MyDescription "Windows Redis Service"
+#define MyPath "E:\Download"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -25,9 +26,9 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-OutputDir=E:\Download
+OutputDir={#MyPath}
 OutputBaseFilename=redis-{#MyAppVersion}-{#MyAppPlatform}
-SetupIconFile=E:\Apply\redis.ico
+SetupIconFile={#MyPath}\redis.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -51,15 +52,15 @@ AppendDefaultGroupName=False
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "E:\Download\redis-6.2.5-msys2\msys-2.0.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\redis.conf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\redis-benchmark.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\redis-check-aof.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\redis-check-rdb.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\redis-cli.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\redis-sentinel.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-msys2\redis-server.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\msys-2.0.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\redis.conf"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\redis-benchmark.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\redis-check-aof.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\redis-check-rdb.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\redis-cli.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\redis-sentinel.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-msys2\redis-server.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 

@@ -9,6 +9,7 @@
 #define MyAppPlatform "cygwin"
 #define MyCopyright "Copyright © Lucifer. All Rights Reserved."
 #define MyDescription "Windows Redis Service"
+#define MyPath "E:\Download"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -25,9 +26,9 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-OutputDir=E:\Download
+OutputDir={#MyPath}
 OutputBaseFilename=redis-{#MyAppVersion}-{#MyAppPlatform}
-SetupIconFile=E:\Apply\redis.ico
+SetupIconFile={#MyPath}\redis.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -51,16 +52,15 @@ AppendDefaultGroupName=False
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "E:\Download\redis-6.2.5-cygwin\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\cygwin1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\redis.conf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\redis-benchmark.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\redis-check-aof.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\redis-check-rdb.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\redis-cli.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\redis-sentinel.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\Download\redis-6.2.5-cygwin\redis-server.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\cygwin1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\redis.conf"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\redis-benchmark.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\redis-check-aof.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\redis-check-rdb.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\redis-cli.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\redis-sentinel.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-cygwin\redis-server.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
