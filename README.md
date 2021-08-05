@@ -1,7 +1,7 @@
 ---
 title: Windows Redis Server
 created: '2021-08-04 19:00:00'
-modified: '2021-08-05 02:33:00'
+modified: '2021-08-06 00:05:00'
 version: '6.2.5'
 ---
 
@@ -43,19 +43,19 @@ version: '6.2.5'
   3. 打开服务安装窗体, 按图示设置好对应的参数, 点击`install service`按钮即可<br/>
 
   参考以下步骤:
-  1. 第一步 ![第一步](./step/step_1.png)<br/>
-  2. 第二步 ![第二步](./step/step_2.png)<br/>
-  3. 第三步 ![第三步](./step/step_3.png)<br/>
-  4. 第四步 ![第四步](./step/step_4.png)<br/>
+  1. 第一步<br/> ![第一步](https://cdn.jsdelivr.net/gh/X-Lucifer/winredis@latest/step/step_1.png)<br/>
+  2. 第二步<br/> ![第二步](https://cdn.jsdelivr.net/gh/X-Lucifer/winredis@latest/step/step_2.png)<br/>
+  3. 第三步<br/> ![第三步](https://cdn.jsdelivr.net/gh/X-Lucifer/winredis@latest/step/step_3.png)<br/>
+  4. 第四步<br/> ![第四步](https://cdn.jsdelivr.net/gh/X-Lucifer/winredis@latest/step/step_4.png)<br/>
   
 </details>
 
 #### 相关源码和其他软件
-1. `Redis`源码: [https://github.com/redis/redis](https://github.com/redis/redis)
-2. `Redis`官网: [https://redis.io](https://redis.io/)
-3. `MSYS2`: [https://www.msys2.org/](https://www.msys2.org/)
-4. `Cygwin`: [https://www.cygwin.com/](https://www.cygwin.com/)
-5. `NSSM`: [https://www.nssm.cc/](https://www.nssm.cc/)
+1. `redis`源码: [https://github.com/redis/redis](https://github.com/redis/redis)
+2. `redis`官网: [https://redis.io](https://redis.io/)
+3. `msys2`: [https://www.msys2.org/](https://www.msys2.org/)
+4. `cygwin`: [https://www.cygwin.com/](https://www.cygwin.com/)
+5. `nssm`: [https://www.nssm.cc/](https://www.nssm.cc/)
 
 
 
