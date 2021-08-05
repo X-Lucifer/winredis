@@ -2,14 +2,16 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Redis"
-#define MyAppVersion "6.2.5"
 #define MyAppPublisher "Lucifer"
 #define MyAppURL "https://github.com/X-Lucifer/winredis"
 #define MyAppExeName "nssm.exe"
-#define MyAppPlatform "msys2"
 #define MyCopyright "Copyright © Lucifer. All Rights Reserved."
 #define MyDescription "Windows Redis Service"
-#define MyPath "E:\Download"
+#define MyAppPlatform "msys2"
+#define MyAppRuntime "msys-2.0.dll"
+;升级需要更新的代码块
+#define MyPath "D:\Publish\Redis"
+#define MyAppVersion "6.2.5"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -52,24 +54,25 @@ AppendDefaultGroupName=False
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "{#MyPath}\redis-msys2\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\msys-2.0.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\redis.conf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\redis-benchmark.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\redis-check-aof.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\redis-check-rdb.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\redis-cli.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\redis-sentinel.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-msys2\redis-server.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\{#MyAppRuntime}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\redis.conf"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-benchmark.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-cli.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-server.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
 
 [Run]
-Filename: "{app}\nssm.exe"; Parameters: "install Redis ""{app}\redis-server.exe"" redis.conf"; WorkingDir: "{app}\"; Description: "安装为Windows服务";
-Filename: "{app}\nssm.exe"; Parameters: "set Redis DisplayName {#MyAppName}"; WorkingDir: "{app}"; Description: "设置服务名称";
-Filename: "{app}\nssm.exe"; Parameters: "set Redis Description ""{#MyDescription}"""; WorkingDir: "{app}"; Description: "设置服务描述";
+Filename: "{app}\nssm.exe"; Parameters: "install Redis ""{app}\redis-server.exe"" redis.conf"; WorkingDir: "{app}\"; Description: "安装为Windows服务"
+Filename: "{app}\nssm.exe"; Parameters: "set Redis DisplayName {#MyAppName}"; WorkingDir: "{app}"; Description: "设置服务名称"
+Filename: "{app}\nssm.exe"; Parameters: "set Redis Description ""{#MyDescription}"""; WorkingDir: "{app}"; Description: "设置服务描述"
+Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-sentinel.exe"" ""{app}\redis-server.exe""";WorkingDir: "{app}\";
+Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-check-rdb.exe"" ""{app}\redis-server.exe""";WorkingDir: "{app}\";
+Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-check-aof.exe"" ""{app}\redis-server.exe""";WorkingDir: "{app}\";
 
 [UninstallRun]
 Filename: "{app}\nssm.exe"; Parameters: "stop {#MyAppName}"; 
 Filename: "{app}\nssm.exe"; Parameters: "remove {#MyAppName} confirm";
+Filename: "{cmd}"; Parameters: " /c del ""{app}\redis-*.exe"" /f /s /q ";WorkingDir: "{app}\";
