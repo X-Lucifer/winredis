@@ -1,7 +1,5 @@
 ---
 title: Windows Redis Server
-created: '2021-08-04'
-modified: '2021-10-07'
 version: '6.2.6'
 ---
 
