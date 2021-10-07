@@ -1,8 +1,8 @@
 ---
 title: Windows Redis Server
-created: '2021-08-04 19:00:00'
-modified: '2021-08-06 00:05:00'
-version: '6.2.5'
+created: '2021-08-04'
+modified: '2021-10-07'
+version: '6.2.6'
 ---
 
 ## Windows Redis Server
