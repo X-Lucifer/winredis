@@ -8,10 +8,15 @@
 #define MyCopyright "Copyright © Lucifer. All Rights Reserved."
 #define MyDescription "Windows Redis Service"
 #define MyAppPlatform "cygwin"
-#define MyAppRuntime "cygwin1.dll"
+;动态链接库
+#define MyLibRuntime "cygwin1.dll"
+#define MyLibSsl "cygssl-1.1.dll"
+#define MyLibCrypto "cygcrypto-1.1.dll"
+#define MyLibZ "cygz.dll"
+#define Suffix "lucifer"
 ;升级需要更新的代码块
 #define MyPath "D:\Publish\Redis"
-#define MyAppVersion "6.2.5"
+#define MyAppVersion "6.2.6"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -55,22 +60,24 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 Source: "{#MyPath}\redis-{#MyAppPlatform}\nssm.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-{#MyAppPlatform}\{#MyAppRuntime}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\{#MyLibRuntime}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\{#MyLibSsl}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\{#MyLibCrypto}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\{#MyLibZ}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyPath}\redis-{#MyAppPlatform}\redis.conf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-benchmark.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-cli.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-server.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-benchmark-{#Suffix}.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-cli-{#Suffix}.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\redis-{#MyAppPlatform}\redis-server-{#Suffix}.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
-
 [Run]
-Filename: "{app}\nssm.exe"; Parameters: "install Redis ""{app}\redis-server.exe"" redis.conf"; WorkingDir: "{app}\"; Description: "安装为Windows服务";
+Filename: "{app}\nssm.exe"; Parameters: "install Redis ""{app}\redis-server-{#Suffix}.exe"" redis.conf"; WorkingDir: "{app}\"; Description: "安装为Windows服务";
 Filename: "{app}\nssm.exe"; Parameters: "set Redis DisplayName {#MyAppName}"; WorkingDir: "{app}"; Description: "设置服务名称";
 Filename: "{app}\nssm.exe"; Parameters: "set Redis Description ""{#MyDescription}"""; WorkingDir: "{app}"; Description: "设置服务描述";
-Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-sentinel.exe"" ""{app}\redis-server.exe""";WorkingDir: "{app}\";
-Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-check-rdb.exe"" ""{app}\redis-server.exe""";WorkingDir: "{app}\";
-Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-check-aof.exe"" ""{app}\redis-server.exe""";WorkingDir: "{app}\";
+Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-sentinel-{#Suffix}.exe"" ""{app}\redis-server-{#Suffix}.exe""";WorkingDir: "{app}\";
+Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-check-rdb-{#Suffix}.exe"" ""{app}\redis-server-{#Suffix}.exe""";WorkingDir: "{app}\";
+Filename: "{cmd}"; Parameters: " /c mklink /h ""{app}\redis-check-aof-{#Suffix}.exe"" ""{app}\redis-server-{#Suffix}.exe""";WorkingDir: "{app}\";
 
 [UninstallRun]
 Filename: "{app}\nssm.exe"; Parameters: "stop {#MyAppName}"; 
