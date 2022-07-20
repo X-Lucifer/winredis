@@ -16,7 +16,7 @@
 #define Suffix "lucifer"
 ;升级需要更新的代码块
 #define MyPath "D:\Publish\Redis"
-#define MyAppVersion "6.2.6"
+#define MyAppVersion "7.0.4"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
